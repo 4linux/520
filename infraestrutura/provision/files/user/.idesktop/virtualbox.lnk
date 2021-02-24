@@ -1,0 +1,10 @@
+table Icon
+  Caption: VirtualBox
+  ToolTip.Caption: VirtualBox
+  Icon: /usr/share/icons/hicolor/48x48/apps/virtualbox.png
+  Width: 48
+  Height: 48
+  X: 15
+  Y: 342
+  Command[0]: virtualbox
+end

@@ -1,0 +1,10 @@
+table Icon
+  Caption: Firefox
+  ToolTip.Caption: Navegador Firefox
+  Icon: /usr/share/icons/hicolor/48x48/apps/firefox-esr.png
+  Width: 48
+  Height: 48
+  X: 15
+  Y: 10
+  Command[0]: firefox
+end

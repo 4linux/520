@@ -1,0 +1,29 @@
+[begin] (Fluxbox)
+   [submenu] (Aplicativos) {}
+      [exec] (Firefox) {firefox}
+      [exec] (Terminal) {sakura}
+      [exec] (Editor) {geany}
+      [exec] (Arquivos) {thunar}
+      [exec] (Instalar Atom) {sakura --execute 'bash /usr/local/bin/install-atom.sh'}
+      [exec] (VSCode) {sakura --execute 'bash /usr/local/bin/install-vscode.sh'}
+      [exec] (Instalar Sublime) {sakura --execute 'bash /usr/local/bin/install-sublime.sh'}
+   [end]
+   [submenu] (Teclado) {}
+      [exec] (BR) {setxkbmap -model abnt2 -layout br && sed -Ei 's/setxkbmap.*/setxkbmap -model abnt2 -layout br/g' ~/.fluxbox/startup}
+      [exec] (EUA) {setxkbmap -layout us -variant intl && sed -Ei 's/setxkbmap.*/setxkbmap -layout us -variant intl/g' ~/.fluxbox/startup}
+   [end]
+   [submenu] (Resolução) {}
+      [exec] (1920x1080) {xrandr --output VGA-1 --mode 1920x1080}
+      [exec] (1600x900) {xrandr --output VGA-1 --mode 1600x900}
+      [exec] (1440x900) {xrandr --output VGA-1 --mode 1440x900}
+      [exec] (1366x768) {xrandr --output VGA-1 --mode 1366x768}
+      [exec] (1360x768) {xrandr --output VGA-1 --mode 1360x768}
+      [exec] (1024x768) {xrandr --output VGA-1 --mode 1024x768}
+      [exec] (800x600) {xrandr --output VGA-1 --mode 800x600}
+   [end]
+	 [exec] (Sair) {pkill fluxbox}
+   [restart] (Recarregar)
+       [exec] (Reiniciar) {/sbin/reboot}
+   [exec] (Desligar) {/sbin/poweroff}
+[end]
+
