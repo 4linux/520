@@ -72,30 +72,28 @@ Caso aconteça algum problema no passo anterior verifique se:
 	O Windows aceita a criação de diretório com caracteres especiais tais como espaços e acentos. Isso pode ser um problema. Recomendamos que utilize um diretório na raiz de uma partição (`C:\main\`, por exemplo). 
   
 1. O caminho padrão dos arquivos do Virtualbox contém caracteres especiais
-  A mesma recomendação para o diretório do Windows vale para o Virtualbox - caso o diretório do seu usuário possuir caracteres especiais, é necessário alterar o diretório padrão do Virtualbox.
+	A mesma recomendação para o diretório do Windows vale para o Virtualbox - caso o diretório do seu usuário possuir caracteres especiais, é necessário alterar o diretório padrão do Virtualbox.
+	
+	Para isso, crie um diretório na raiz de uma partição (`C:\VirtualBox\` por exemplo) e indique esse caminho no Virtualbox em Aquivo > Preferências:
 
-  Para isso, crie um diretório na raiz de uma partição (`C:\VirtualBox\` por exemplo) e indique esse caminho no Virtualbox em Aquivo > Preferências:
-
-  ![Alteração pasta padrão do VBox](images/vbox2.png)
+  	![Alteração pasta padrão do VBox](images/vbox2.png)
   
 1. HyperV esteja desativado
   
 	O hypervisor da Microsoft pode apresentar conflitos com o Virtualbox.
 
-  Para desativar o HyperV, utilize o seguinte comando em prompt de comando com permissões de administrador:
-
-  ``` shell
-  dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
-		
-  ```
-
-  Será preciso que você reinicie o computador.
-
-  Depois se você quiser habilitar novamente o HyperV utilize o seguinte comando (também com permissões de administrador):
+  	Para desativar o HyperV, utilize o seguinte comando em prompt de comando com permissões de administrador:
 
 	``` shell
-	dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
-		
+	dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+	```
+
+	Será preciso que você reinicie o computador.
+
+	Depois se você quiser habilitar novamente o HyperV utilize o seguinte comando (também com permissões de administrador):
+
+	``` shell
+	dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All	
 	```
 
 	Se ainda tiver problemas verifique se a pasta a qual você colocou o diretório do repositório não contém acentuação e/ou espaços. 
