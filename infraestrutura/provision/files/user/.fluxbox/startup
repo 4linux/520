@@ -13,7 +13,7 @@ xmodmap ~/.Xmodmap
 # unclutter -idle 2 &
 # wmnd &
 # wmsmixer -w &
-idesk &
+#idesk &
 setxkbmap -layout us -variant intl
 #
 # Debian-local change:

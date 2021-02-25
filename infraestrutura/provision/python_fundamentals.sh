@@ -19,12 +19,11 @@ for U in developer suporte; do
 	cp -a /home/vagrant/files/user/.config /home/$U
 	mkdir -p /home/$U/{Documentos,Downloads}
 	chown $U:$U /home/$U/{Documentos,Downloads}
-	chown -R $U:$U /home/$U/{.config,.mozilla,.fluxbox,.idesktop}
-	echo "exec fluxbox" > ~/home/$U/.xinitrc
+	echo "exec fluxbox" > /home/$U/.xinitrc
 	echo 'if [ -z "$DISPLAY" ] && [ $(tty) == /dev/tty1 ]; then
 			     startx
 	    fi' >> /home/$U/.bash_profile
- 
+	chown -R $U:$U /home/$U/{.config,.mozilla,.fluxbox,.idesk*,.bash*}
 done
 
 
