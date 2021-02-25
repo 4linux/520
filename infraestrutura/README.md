@@ -100,7 +100,7 @@ Caso aconteça algum problema no passo anterior verifique se:
 
 
 
-## OVAs 
+### OVAs 
 
 Na plataforma do curso há um link para download da máquina virtual no formato  **.OVA** que pode ser importado diretamente no VirtualBox . Por se tratar de um arquivo que contém um sistema operacional completo já configurado, ele ele é pesado, com tamanho próximo de 1GB. 
 
