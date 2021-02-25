@@ -46,8 +46,7 @@ Depois de realizada a instalação, realize o download deste [repositório](http
 Feito este passo, basta entrar no diretório `infraestrutura` através de um prompt de comando e digitar os seguintes comandos:
 
 ```
-main > cd infraestrutura
-main > vagrant up
+infraestrutura > vagrant up
 ```
 
 Aperte enter e espere o Vagrant configurar tudo. Pode levar alguns minutos, e muitas mensagens aparecerão na tela. Não se preocupe, é normal :).
@@ -72,9 +71,10 @@ Caso aconteça algum problema no passo anterior verifique se:
 	O Windows aceita a criação de diretório com caracteres especiais tais como espaços e acentos. Isso pode ser um problema. Recomendamos que utilize um diretório na raiz de uma partição (`C:\main\`, por exemplo). 
   
 1. O caminho padrão dos arquivos do Virtualbox contém caracteres especiais
+	
 	A mesma recomendação para o diretório do Windows vale para o Virtualbox - caso o diretório do seu usuário possuir caracteres especiais, é necessário alterar o diretório padrão do Virtualbox.
 	
-	Para isso, crie um diretório na raiz de uma partição (`C:\VirtualBox\` por exemplo) e indique esse caminho no Virtualbox em Aquivo > Preferências:
+	Para isso, crie um diretório na raiz de uma partição (`C:\VirtualBox\` por exemplo) e indique esse caminho no Virtualbox em `Arquivo > Preferências`:
 
   	![Alteração pasta padrão do VBox](images/vbox2.png)
   
