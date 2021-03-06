@@ -81,16 +81,3 @@ Morango: 5.00
 
 Dica: você pode armazenar os dados das frutas e seus respectivos preços em um dicionário.
 
-Escreva um script em Python que receba dois números e que realize as seguintes operações:
-
-- Soma de dois números
-- Diferença de dois números
-
-No exemplo foram digitados os números 4 e 2. O resultado deverá ser apresentado da seguinte forma:
-
-```
-------------------------------
-Soma: 4 + 2 = 6
-Diferença: 4 - 2 = 2
-```
-
