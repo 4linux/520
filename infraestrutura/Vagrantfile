@@ -1,0 +1,37 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+vms = {
+  '4520' => {
+			'memory' => '4096', 
+			'vram' => 64,
+			'graphics-controller' => 'vboxsvga',
+			'cpus' => 2,
+			'ip' => '10', 
+			'box' => 'geerlingguy/debian10', 
+			'provision' => 'python_fundamentals.sh'
+			},
+}
+
+Vagrant.configure('2') do |config|
+
+  config.vm.box_check_update = false
+	config.vm.provision "file", source: "./provision/files", destination:"/home/vagrant/files"
+
+  vms.each do |name, conf|
+    config.vm.define "4Linux" do |my|
+      my.vm.box = conf['box']
+      my.vm.hostname = "4linux.example.com"
+      my.vm.network 'private_network', ip: "172.20.12.#{conf['ip']}"
+      my.vm.provision 'shell', path: "provision/#{conf['provision']}"
+      my.vm.provider 'virtualbox' do |vb|
+        vb.memory = conf['memory']
+				vb.name = '4linux_developer'
+        vb.cpus = conf['cpus']
+				vb.customize ["modifyvm", :id, '--vram', "#{conf['vram']}"]
+      	vb.customize ["modifyvm", :id, '--graphicscontroller', "#{conf['graphics-controller']}"]
+			end
+    end
+  end
+
+end

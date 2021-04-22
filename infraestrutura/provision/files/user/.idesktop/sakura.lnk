@@ -1,0 +1,10 @@
+table Icon
+  Caption: Terminal
+  ToolTip.Caption: Sakura Terminal
+  Icon: /usr/share/icons/Adwaita/48x48/apps/utilities-terminal.png
+  Width: 48
+  Height: 48
+  X: 15
+  Y: 176
+  Command[0]: sakura
+end

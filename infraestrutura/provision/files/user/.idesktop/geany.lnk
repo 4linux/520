@@ -1,0 +1,10 @@
+table Icon
+  Caption: Geany 
+  ToolTip.Caption: Editor Geany
+  Icon: /usr/share/icons/Adwaita/48x48/apps/accessories-text-editor.png
+  Width: 48
+  Height: 48
+  X: 15
+  Y: 93
+  Command[0]: geany
+end
