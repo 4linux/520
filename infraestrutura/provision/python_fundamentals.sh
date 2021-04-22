@@ -23,7 +23,7 @@ for U in developer suporte; do
 	echo 'if [ -z "$DISPLAY" ] && [ $(tty) == /dev/tty1 ]; then
 			     startx
 	    fi' >> /home/$U/.bash_profile
-	chown -R $U:$U /home/$U/{.config,.mozilla,.fluxbox,.idesk*,.bash*}
+	chown -R $U:$U /home/$U/{.config,.mozilla,.fluxbox,.idesk*,.bash*,.xinitrc}
 done
 
 
