@@ -1,6 +1,6 @@
 import sqlite3
 
-from .config import config
+from . import setup, usuarios
 
 
 QUERY_CRIACAO_TABELA = """
@@ -10,47 +10,26 @@ CREATE TABLE {nome} (
 """
 
 
-QUERY_CRIACAO_ADMIN = f"""
-INSERT INTO {config['tabelas']['usuarios']} VALUES
-("root", "root", 0, 0, 0);
-"""
+def criar_conexao():
+    con = sqlite3.connect(setup.config['banco'])
+    yield con
+    con.close()
 
 
 def criar_banco():
-    tabelas = {
-        config['tabelas']['usuarios']: [
-            # Colunas no formato (nome, tipo)
-            ('username', 'TEXT'),
-            ('senha', 'TEXT'),
-            ('bloqueado', 'INTEGER'),
-            ('primeira_senha', 'INTEGER'),
-            ('tentativas_erradas', 'INTEGER')
-        ],
-        config['tabelas']['contas']: [
-            ('usuario_id', 'INTEGER'),
-            ('saldo', 'REAL')
-        ]
-    }
+    for con in criar_conexao():
+        for (tabela, colunas) in setup.config['tabelas'].items():
+            query = QUERY_CRIACAO_TABELA.format(nome=tabela, colunas=', '.join(colunas))
 
-    con = sqlite3.connect(config['banco'])
+            try:
+                con.execute(query)
+                con.commit()
 
-    for tabela in tabelas:
-        colunas = []
+            except sqlite3.OperationalError:
+                # tabela já existe
+                pass
 
-        for coluna in tabelas[tabela]:
-            colunas.append(' '.join(coluna))
-
-        query = QUERY_CRIACAO_TABELA.format(nome=tabela, colunas=', '.join(colunas))
-
-        try:
-            con.execute(query)
-
-        except sqlite3.OperationalError:
-            # tabela já existe
-            pass
-
-        else:
-            if tabela == config['tabelas']['usuarios']:
-                con.execute(QUERY_CRIACAO_ADMIN)
-
-    con.close()
+            else:
+                if tabela == setup.TABELA_USUARIOS:
+                    con.execute(usuarios.QUERY_CRIACAO_USUARIO,
+                                ("root", "root", 0, 0, 0, 1))
