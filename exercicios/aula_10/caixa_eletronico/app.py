@@ -1,8 +1,10 @@
-import caixa_eletronico as cx
+from caixa_eletronico import menus
+from caixa_eletronico.bd import base
 
 
 def main():
-    pass
+    base.criar_banco()
+    menus.menu_principal()
 
 
 if __name__ == '__main__':
