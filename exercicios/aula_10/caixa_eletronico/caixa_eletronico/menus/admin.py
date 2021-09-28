@@ -1,6 +1,6 @@
 from .. import exceptions, usuarios, contas
 
-def menu_admin(admin: usuarios.Administrador):
+def menu_admin(admin):
     opcoes = {
         'C': 'Cadastrar novo cliente',
         'D': 'Desbloquear um cliente',

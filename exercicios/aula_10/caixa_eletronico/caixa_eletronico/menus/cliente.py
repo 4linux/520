@@ -3,7 +3,7 @@ from getpass import getpass
 from .. import exceptions, usuarios, contas
 
 
-def menu_cliente(cliente: usuarios.Cliente):
+def menu_cliente(cliente):
     if cliente.primeiro_acesso:
         alterar_senha(cliente)
 
@@ -102,7 +102,7 @@ def transferir(remetente):
         print(f'Novo saldo do destinatário: {nsb:.02f}')
 
 
-def alterar_senha(cliente: usuarios.Cliente):
+def alterar_senha(cliente):
     senha, senha_conf = 'a', 'b'
 
     while senha != senha_conf:
